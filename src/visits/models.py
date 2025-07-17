@@ -1,9 +1,9 @@
 from django.db import models
 
 # Create your models here.
-class Page_Visit(models.Model):
+class PageVisit(models.Model):
     # db -> table 
-    # id -> primary key -> autofield -> 1,2,3,4,5
+    # id -> primary key -> autofield -> 1,2,3,4,5 and soo on .
 
     path = models.TextField(blank = True, null = True)
     timestamp = models.DateTimeField(auto_now_add=True)
@@ -11,3 +11,5 @@ class Page_Visit(models.Model):
 
     def __str__(self):
         return f"{self.path} - {self.timestamp} - {self.count}"
+
+
