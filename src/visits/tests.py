@@ -1,3 +1,9 @@
-from django.test import TestCase
+import psycopg
+import os
 
-# Create your tests here.
+url = os.getenv("DATABASE_URL")
+print("Connecting to:", url)
+
+conn = psycopg.connect(url)
+print("Connected!")
+conn.close()
