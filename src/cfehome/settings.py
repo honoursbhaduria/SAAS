@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/5.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
+from decouple import config
 import os 
 from pathlib import Path
 
@@ -20,10 +21,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-)8yv1rfkuc33@6yjku&c#u8%+6at)8zkkup9(upls4a1$*k(r%'
+SECRET_KEY = config("DJANGO_SECRET_KEY" , default = None )
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = str(os.environ.get("DJANGO_DEBUG")).lower() == "true" 
+# DEBUG = str(os.environ.get("DJANGO_DEBUG")).lower() == "true" 
+
+
+DEBUG = config("DJANGO_DEBUG" , cast = bool)
 
 print(f"DEBUG: {DEBUG}" ,  type(DEBUG))
 
@@ -91,8 +95,18 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+CONN_MAX_AGE = config("CONN_MAX_AGE", cast=int, default=30)
+DATABASE_URL = config("DATABASE_URL", cast=str)
 
-
+if DATABASE_URL is not None:
+    import dj_database_url
+    DATABASES = {
+        'default': dj_database_url.config(
+        default=DATABASE_URL,
+        conn_max_age=30, 
+        conn_health_checks=True
+         )
+    }
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
 

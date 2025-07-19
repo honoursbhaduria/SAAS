@@ -1,11 +1,11 @@
-### SaaS Foundations
+## SaaS Foundations
 Build the foundations for a Software as a Service business by leveraging Django, Tailwind, htmx, Neon Postgres, Redis, and more.
 
-The goal of this project is to learn how to create a reusable foundation for building SaaS products. When release, this course will span multiple topics and give you a solid foundation into build your business.
+The goal of this project is to learn how to create a reusable foundation for building SaaS products. When release, this course will span multiple topics and give you a solid foundation into build your foundation on SAAS .
 
 
 
-## Sample dotenv to dotnev
+### Sample dotenv to dotnev
 ```bash
 cp .env.sample .env
 cat .env
@@ -16,7 +16,7 @@ values include :
 >> * DJANGO_DEBUG=1 
 >> * DJANGO_SECRET_KEY=""
 >> * DATABASE_URL=""
->> # In future 
+>> ### In future 
 >> * EMAIL_HOST="smtp.gmail.com"
 >> * EMAIL_PORT="587"
 >> * EMAIL_USE_TLS=True
