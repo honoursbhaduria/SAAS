@@ -16,7 +16,7 @@ values include :
 >> * DJANGO_DEBUG=1 
 >> * DJANGO_SECRET_KEY=""
 >> * DATABASE_URL=""
-In future 
+>> # In future 
 >> * EMAIL_HOST="smtp.gmail.com"
 >> * EMAIL_PORT="587"
 >> * EMAIL_USE_TLS=True
