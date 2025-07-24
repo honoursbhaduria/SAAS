@@ -1,3 +1,12 @@
+# Ignore static vendor files
+\staticfiles/
+
+
+#ignore the local static files root 
+# or "local cdn "
+local-cdn/
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]

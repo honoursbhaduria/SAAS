@@ -95,6 +95,7 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
 CONN_MAX_AGE = config("CONN_MAX_AGE", cast=int, default=30)
 DATABASE_URL = config("DATABASE_URL", cast=str)
 
@@ -142,6 +143,25 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
+
+STATICFILES_BASE_DIR = BASE_DIR / 'staticfiles'
+
+STATICFILES_VENDORS_DIR = STATICFILES_BASE_DIR / 'vendors'
+
+
+# source for python manage.py collectstatic
+
+STATICFILES_DIRS = [
+    STATICFILES_BASE_DIR,
+    
+]
+
+#output from python manage.py collectstatic
+# local cdn -> prod cdn 
+
+
+STATIC_ROOT = BASE_DIR / 'local-cdn'   
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
