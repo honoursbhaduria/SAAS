@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'visits',  # Custom app for tracking visits
+    'commando',  # app for management commands
 ]
 
 MIDDLEWARE = [

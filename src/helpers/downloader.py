@@ -1,7 +1,7 @@
 import requests
 from pathlib import Path
 
-def download_t0_local(url: str, out_path: Path, parent_mkdir: bool=True) -> None:
+def download_to_local(url: str, out_path: Path, parent_mkdir: bool=True) -> None:
     """
     Downloads a file from the given URL and saves it to the specified local path.
     
