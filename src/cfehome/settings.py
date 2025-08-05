@@ -16,6 +16,36 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+from decouple import config
+
+# default backend
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = config("EMAIL_HOST", cast=str, default=None)
+EMAIL_PORT = config("EMAIL_PORT", cast=str, default='587') # Recommended
+EMAIL_HOST_USER = config("EMAIL_HOST_USER", cast=str, default=None)
+EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD", cast=str, default=None)
+EMAIL_USE_TLS = config("EMAIL_USE_TLS", cast=bool, default=True)  # Use EMAIL_PORT 587 for TLS
+EMAIL_USE_SSL = config("EMAIL_USE_SSL", cast=bool, default=False)  # EUse MAIL_PORT 465 for SSL
+
+
+#admins and managers
+ADMIN_USER_NAME=config("ADMIN_USER_NAME", default="Admin user")
+ADMIN_USER_EMAIL=config("ADMIN_USER_EMAIL", default=None)
+
+MANAGERS=[]
+ADMINS=[]
+if all([ADMIN_USER_NAME, ADMIN_USER_EMAIL]):
+    ADMINS +=[
+        (f'{ADMIN_USER_NAME}', f'{ADMIN_USER_EMAIL}')
+    ]
+    MANAGERS=ADMINS
+
+
+# you can test by python manage.py sendtestemail --admin
+
+
+
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
@@ -97,18 +127,18 @@ DATABASES = {
     }
 }
 
-# CONN_MAX_AGE = config("CONN_MAX_AGE", cast=int, default=30)
-# DATABASE_URL = config("DATABASE_URL", default = None)
+CONN_MAX_AGE = config("CONN_MAX_AGE", cast=int, default=30)
+DATABASE_URL = config("DATABASE_URL", default = None)
 
-# if DATABASE_URL is not None:
-#     import dj_database_url
-#     DATABASES = {
-#         'default': dj_database_url.config(
-#         default=DATABASE_URL,
-#         conn_max_age=30, 
-#         conn_health_checks=True
-#          )
-#     }
+if DATABASE_URL is not None:
+    import dj_database_url
+    DATABASES = {
+        'default': dj_database_url.config(
+        default=DATABASE_URL,
+        conn_max_age=30, 
+        conn_health_checks=True
+         )
+    }
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
 

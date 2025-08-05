@@ -12,7 +12,6 @@ values include :
 >> * DJANGO_DEBUG=1 
 >> * DJANGO_SECRET_KEY=""
 >> * DATABASE_URL=""
->> ### In future 
 >> * EMAIL_HOST="smtp.gmail.com"
 >> * EMAIL_PORT="587"
 >> * EMAIL_USE_TLS=True
@@ -20,6 +19,7 @@ values include :
 >> * EMAIL_HOST_USER=""
 >> * EMAIL_HOST_PASSWORD=""
 >> * ADMIN_USER_EMAIL=""
+>> ### In future 
 >> * STRIPE_SECRET_KEY=""
 
 
