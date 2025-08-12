@@ -33,14 +33,9 @@ def register_view(request):
         
         # username_exists = User.objects.filter(username__iexact=username).exists()
         # email_exists = User.objects.filter(email__iexact=email).exists()
-
-
-
-        confirm_password = request.POST.get('confirm_password') or None 
-        if all([username, email, password, confirm_password]) and password == confirm_password:
-            # Here you would typically create the user and save it to the database
-            # For example:
-            # user = User.objects.create_user(username=username, email=email, password=password)
-            # login(request, user)
-            return redirect('/')
+        try:
+            User.objects.create_user(username=username, email=email, password=password)
+            return redirect('/auth/login/')
+        except Exception as e:
+            pass
     return render(request, "auth/register.html", {})
