@@ -7,3 +7,6 @@ requests
 whitenoise 
 django-allauth[socialaccount]
 django-allauth
+django-allauth-ui
+django-widget-tweaks
+slippers

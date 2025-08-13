@@ -87,9 +87,13 @@ INSTALLED_APPS = [
      # Custom authentication app 
     # 'auth', 
     #third party apps
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
+     "allauth_ui",
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
+    "allauth.socialaccount.providers.github",
+    "widget_tweaks",
+    "slippers",
 ]
 
 MIDDLEWARE = [
@@ -173,6 +177,8 @@ LOGIN_REDIRECT_URL = config("LOGIN_REDIRECT_URL", default="/")
 ACCOUNT_AUTHENTICATION_METHOD = "username_email"
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+#Ui 
+ALLAUTH_UI_THEME = "light"
 
 AUTHENTICATION_BACKENDS = [
     # ...
@@ -189,6 +195,7 @@ AUTHENTICATION_BACKENDS = [
 SOCIALACCOUNT_PROVIDERS = {
    
 }
+
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
