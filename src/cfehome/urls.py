@@ -22,8 +22,8 @@ from .views import home_view ,about_view
 
     
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('login/', auth_views.login_view ),
+    path('admin/', admin.site.urls , name='admin'),
+    path('login/', auth_views.login_view , name='login'),
     path('register/', auth_views.register_view, name='register'),
     path('about/' , about_view , name = 'about' ),
     path('accounts/', include('allauth.urls')),  #accounts login ND accounts signin 

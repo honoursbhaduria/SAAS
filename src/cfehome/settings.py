@@ -174,8 +174,10 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
 
 LOGIN_REDIRECT_URL = config("LOGIN_REDIRECT_URL", default="/")
-ACCOUNT_AUTHENTICATION_METHOD = "username_email"
-ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_LOGIN_METHODS = {'username', 'email'}
+
+ACCOUNT_SIGNUP_FIELDS = ['email*', 'username*', 'password1*', 'password2*']
+
 ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 #Ui 
 ALLAUTH_UI_THEME = "light"

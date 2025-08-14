@@ -11,12 +11,15 @@
             {% block head_title %}
             {% endblock head_title %}
         </title>
+        
         {% block extra_head %}
             <link rel="stylesheet" href="{% static 'allauth_ui/output.css' %}">
         {% endblock extra_head %}
         {% include 'base/css.html' %}
     </head>
     <body class="min-h-screen bg-base-300">
+        
+        
         {% include 'nav/navbar.html' %}
         {% include 'base/js.html' %}
         
